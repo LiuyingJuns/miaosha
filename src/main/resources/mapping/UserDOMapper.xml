@@ -34,6 +34,14 @@
     from user_info
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectUserList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user_info
+    order by age
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated

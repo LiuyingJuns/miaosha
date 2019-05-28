@@ -1,6 +1,7 @@
 package com.miaosha.controller;
 
 import com.alibaba.druid.util.StringUtils;
+import com.miaosha.Utils.JwtUtils;
 import com.miaosha.controller.viewobject.UserVO;
 import com.miaosha.error.BussinessException;
 import com.miaosha.error.EmBussinessError;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -153,6 +155,29 @@ public class UserController extends BaseController{
         return CommonReturnType.creat(userVO);
     }
 
+    /**
+     * 用户token登录的接口
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/loginWithToken",method = RequestMethod.POST)
+    public CommonReturnType userlogins(@RequestBody Map<String,String> map) throws BussinessException {
+        String username = map.get("username");
+        String password = map.get("password");
+
+        //验证身份是否正确
+        UserModel userModel = userService.validateLogin(username,password);
+        if (userModel != null){
+        UserModel userModel1 = userService.getUserById(userModel.getId());
+            //返回token
+            String token = JwtUtils.sign(username, String.valueOf(userModel1.getId()));
+            if (token != null){
+                return CommonReturnType.creat(token);
+            }
+        }
+        //返回空的信息
+        return null;
+    }
 
 
 

@@ -19,7 +19,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.DuplicateFormatFlagsException;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -96,9 +98,11 @@ public class UserServiceImpl implements UserService {
         return;
     }
 
+
+
     /** 用户登录*/
     @Override
-    public UserModel login(String telphone,String password) throws BussinessException {
+    public void login(String telphone,String password) throws BussinessException {
         //先判断用户是否存在
        UserDO userDO = userDOMapper.selectByTelphone(telphone);
        if (userDO == null){
@@ -106,14 +110,7 @@ public class UserServiceImpl implements UserService {
        }
        //存在，则校验手机号密码是否一致
        Boolean result = this.validateUserTelphone(telphone,password);
-       if (result == true){
-            log.info("用户登录成功"+result);
-       }
-       UserModel userModel = new UserModel();
-       BeanUtils.copyProperties(userDO,userModel);
-       userModel.setEncrptPassword(password);
 
-       return userModel;
     }
 
     private Boolean validateUserTelphone(String telphone,String password) throws BussinessException {
@@ -130,6 +127,9 @@ public class UserServiceImpl implements UserService {
        if (!StringUtils.equals(userPasswordDO.getEncrptPassword(),password)){
            log.error("用户手机号密码错误"+password);
            System.out.println("用户手机号或密码错误");
+       }else {
+           log.info("用户登录成功"+"telphone:"+telphone+"password:"+password);
+           return true;
        }
        return true;
     }
@@ -182,6 +182,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public void findPassword(UserModel userModel) {
 
+    }
+
+    @Override
+    public List<UserModel> selectUserList() {
+       List<UserDO> userDOList = userDOMapper.selectUserList();
+       List<UserModel> userModelList = new ArrayList<>();
+       for (int i=0;i<userDOList.size();i++){
+          UserDO userDO = userDOList.get(i);
+          UserModel userModel = new UserModel();
+          BeanUtils.copyProperties(userDO,userModel);
+          userModelList.add(userModel);
+       }
+        return userModelList;
     }
 
     @Override

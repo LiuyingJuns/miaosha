@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceImplTest {
@@ -17,7 +19,7 @@ public class UserServiceImplTest {
 
     public static  int id = 7;
     public static  String telphone = "15222222222";
-    public static  String password = "[B@328151c21";
+    public static  String password = "[B@328151c2";
     @Test
     public void getUserById() {
     }
@@ -28,8 +30,8 @@ public class UserServiceImplTest {
 
     @Test
     public void login() throws BussinessException {
-       UserModel userModel = userService.login(telphone,password);
-        Assert.assertNotNull(userModel);
+        userService.login(telphone,password);
+
     }
 
     @Test
@@ -42,19 +44,10 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void getUserById1() {
+    public void selectUserList(){
+       List<UserModel> userModelList =  userService.selectUserList();
+        Assert.assertNotNull(userModelList);
     }
 
-    @Test
-    public void register1() {
-    }
 
-    @Test
-    public void validateLogin1() {
-    }
-
-    @Test
-    public void changePhone1() throws BussinessException {
-        userService.changePhone(id,telphone);
-    }
 }
