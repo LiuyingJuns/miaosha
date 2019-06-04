@@ -57,4 +57,6 @@ public interface UserDOMapper {
     int updateByPrimaryKey(UserDO record);
 
     int updateByTelphone(UserDO userDO);
+
+    int batchDeleteUser(List<Integer> ids);
 }

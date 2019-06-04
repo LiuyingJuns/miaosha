@@ -1,5 +1,6 @@
 package com.miaosha.service.Impl;
 
+import com.miaosha.Excel.ExcelExportUtils;
 import com.miaosha.dao.UserDOMapper;
 import com.miaosha.dao.UserPasswordDOMapper;
 import com.miaosha.dateobject.UserDO;
@@ -19,9 +20,13 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.DuplicateFormatFlagsException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -101,6 +106,7 @@ public class UserServiceImpl implements UserService {
 
 
     /** 用户登录*/
+    @Transactional
     @Override
     public void login(String telphone,String password) throws BussinessException {
         //先判断用户是否存在
@@ -129,7 +135,6 @@ public class UserServiceImpl implements UserService {
            System.out.println("用户手机号或密码错误");
        }else {
            log.info("用户登录成功"+"telphone:"+telphone+"password:"+password);
-           return true;
        }
        return true;
     }
@@ -157,6 +162,7 @@ public class UserServiceImpl implements UserService {
         return userModel;
     }
 
+    /**更换手机号*/
     @Override
     public void changePhone(Integer id,String telphone) throws BussinessException {
         //先查询是否存在该手机号
@@ -174,16 +180,51 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    /**更换密码*/
     @Override
-    public void changePassword(UserModel userModel) {
+    public void  changePassword(UserModel userModel) {
+       //获取用户信息
+        UserDO userDO = new UserDO();
+        userDO.setId(userModel.getId());
+
+        //获取用户密码信息
+        UserPasswordDO userPasswordDO = new UserPasswordDO();
+        userPasswordDO.setUserId(userDO.getId());
+        userPasswordDO.setEncrptPassword(userModel.getEncrptPassword());
+
+       int i = userPasswordDOMapper.updateUserPassword(userPasswordDO);
+       if (i>0){
+           System.out.println("更新成功");
+       }
 
     }
 
+    /**
+     * 找回密码
+     * @param userModel
+     */
     @Override
-    public void findPassword(UserModel userModel) {
+    public void findPassword(UserModel userModel) throws BussinessException {
+        //校验手机号是否存在
+        String telphone = userModel.getTelphone();
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (StringUtils.isEmpty(userDO.getTelphone())){
+            throw new BussinessException(EmBussinessError.USER_NOT_EXIST);
+        }
+        //获取用户;userid
+        int userid = userModel.getId();
+
+        //校验新密码和旧密码是否一致
+        String password = userModel.getEncrptPassword();
+       UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userid);
+       if (!StringUtils.equals(password,userPasswordDO.getEncrptPassword())){
+           log.info("新旧密码不一致");
+           throw new BussinessException(EmBussinessError.USER_PASS_NOT_SAME);
+       }
 
     }
 
+    /**查询用户列表*/
     @Override
     public List<UserModel> selectUserList() {
        List<UserDO> userDOList = userDOMapper.selectUserList();
@@ -194,9 +235,26 @@ public class UserServiceImpl implements UserService {
           BeanUtils.copyProperties(userDO,userModel);
           userModelList.add(userModel);
        }
+
+       for(UserDO userDO : userDOList){
+           UserModel userModel = new UserModel();
+           BeanUtils.copyProperties(userDO,userModel);
+           userModelList.add(userModel);
+       }
+
+      userModelList = userDOList.stream().map(userDO -> {
+           UserModel userModel = new UserModel();
+           BeanUtils.copyProperties(userDO,userModel);
+           return userModel;
+       }).collect(Collectors.toList());
         return userModelList;
     }
 
+    /**邀请注册
+     * user_id,  username,  parent_id,  account，  parent_account
+     *   1.1                     1         10           100
+     *   1.2                     1.1       5             10
+     * */
     @Override
     public UserModel inviteRegister(UserModel userModel) {
         return null;
@@ -220,6 +278,57 @@ public class UserServiceImpl implements UserService {
 
 
         return userModel;
+    }
+
+    /**批量删除两种方式，一种遍历传入进来的list进行单个删除，.01一种是将传入的list进入mybatis中进行foreach删除*/
+    @Override
+    public int batchDeleteUser(List<Integer> ids) {
+        for(Integer id : ids){
+           int result = userDOMapper.deleteByPrimaryKey(id);
+            if (result>0){
+                log.info("批量删除成功"+result);
+            }
+        }
+//        int result = userDOMapper.batchDeleteUser(ids);
+//       if (result>0){
+//           log.info("批量删除成功"+result);
+//       }
+    return 1;
+    }
+
+    @Override
+    public void exportUsers() {
+        ExcelExportUtils exportUtils = new ExcelExportUtils();
+        //设置表格标题名称
+        String title = "用户";
+        //设置表格列名数组
+        String[] headers = new String[]{"用户姓名","性别","年龄","手机号","注册码"};
+        //查出用户数据
+        List<UserDO> userDOList = userDOMapper.selectUserList();
+
+//        List<UserModel> userModelList = new ArrayList<>();
+//        //查出用户密码
+//        for (UserDO userDO : userDOList){
+//            Integer userid = userDO.getId();
+//            UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userid);
+//            UserModel userModel = new UserModel();
+//            BeanUtils.copyProperties(userDO,userModel);
+//            if (userPasswordDO.getEncrptPassword()!=null){
+//                userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
+//                userModelList.add(userModel);
+//            }
+//        }
+        //创建输入流
+        try {
+            OutputStream outputStream = new FileOutputStream("C://Users//acer-pc//Desktop//users.xls");
+            ExcelExportUtils<UserDO> excelExportUtils = new ExcelExportUtils<UserDO>();
+            excelExportUtils.exportExcel(title,headers,userDOList,outputStream,"yyyy-MM-dd");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            log.error(e.getMessage());
+        }
+
+
     }
 
     /**

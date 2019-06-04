@@ -12,12 +12,18 @@ public enum EmBussinessError implements CommonError {
      * 定义20000开头的为用户信息相关错误定义
      */
     USER_NOT_EXIST(20001,"用户不存在"),
+
     USER_LOGIN_FAIL(20002,"手机号或密码错误"),
+
     USER_NOT_LOGIN(20003,"用户未登录"),
+
+    USER_PASS_NOT_SAME(20004,"新旧密码一致"),
     /**
      * 定义30000开头的为商品信息相关错误定义
      */
-    STOCK_NOT_ENOUGH(30001,"库存不足");
+    STOCK_NOT_ENOUGH(30001,"库存不足"),
+
+    USER_IS_EXIST(30002,"用户已存在");
     private int errorCode;
     private String errorMsg;
 

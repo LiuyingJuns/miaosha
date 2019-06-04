@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -47,6 +48,35 @@ public class UserServiceImplTest {
     public void selectUserList(){
        List<UserModel> userModelList =  userService.selectUserList();
         Assert.assertNotNull(userModelList);
+    }
+
+    @Test
+    public void changePassword(){
+        UserModel userModel = new UserModel();
+        userModel.setId(7);
+        userModel.setEncrptPassword("123456aaaaaaaaaaa");
+         userService.changePassword(userModel);
+
+    }
+
+    @Test
+    public void batchDeleteUser(){
+        int id1 = 14;
+        int id2 = 15;
+
+
+        List<Integer> ids = new ArrayList<>();
+
+        ids.add(id1);
+        ids.add(id2);
+
+        int result = userService.batchDeleteUser(ids);
+        Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void exportExcel(){
+        userService.exportUsers();
     }
 
 
