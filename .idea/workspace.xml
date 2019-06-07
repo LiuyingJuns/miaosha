@@ -2,26 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0518d0fa-b241-4d64-81c3-39f2b0db2d61" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/dao/InvitationUserDOMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/dateobject/InvitationUserDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/InvitationUserServiveImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/InvitationUserModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/InvitationUserServive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapping/invitationUserDOMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/miaosha/dao/InvitationUserDOMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/InvitationUserServiveImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserDOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserDOMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserPasswordDOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserPasswordDOMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/error/EmBussinessError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/error/EmBussinessError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/model/ExportUserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_2/222" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_3/3333333" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_3/commit111/aaaaaaaaaaaaaaaaaaaaaaa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_3/commit111/bbbbbbbbbbbbb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_3/commit111/cccccccccc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_3/commit111/ddddddddddd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/commit_package/1111" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ItemStockDoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ItemStockDoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/UserDOMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/UserDOMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/UserPasswordDOMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/UserPasswordDOMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaosha/service/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/miaosha/service/model/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/miaosha/Excel/ExcelExportUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaosha/Excel/ExcelExportUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/miaosha/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaosha/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/miaosha/service/Impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaosha/service/Impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/miaosha/service/model/UserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/miaosha/service/model/UserModel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,7 +49,7 @@
     <session id="827172133">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="73" />
+          <entry key="project.closed" value="75" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.open.time.103" value="1" />
@@ -74,6 +71,7 @@
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="2" />
           <entry key="project.open.time.52" value="1" />
@@ -97,7 +95,7 @@
           <entry key="project.open.time.83" value="4" />
           <entry key="project.open.time.84" value="1" />
           <entry key="project.open.time.86" value="1" />
-          <entry key="project.open.time.87" value="1" />
+          <entry key="project.open.time.87" value="2" />
           <entry key="project.open.time.88" value="1" />
           <entry key="project.open.time.89" value="2" />
           <entry key="project.open.time.9" value="3" />
@@ -107,7 +105,7 @@
           <entry key="project.open.time.94" value="1" />
           <entry key="project.open.time.95" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="81" />
+          <entry key="project.opened" value="83" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -115,25 +113,25 @@
           <entry key="0-SNAPSHOT" value="2" />
           <entry key="class" value="40" />
           <entry key="iml" value="3" />
-          <entry key="java" value="559" />
+          <entry key="java" value="571" />
           <entry key="properties" value="10" />
-          <entry key="xml" value="111" />
+          <entry key="xml" value="112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="40" />
           <entry key="IDEA_MODULE" value="3" />
-          <entry key="JAVA" value="559" />
+          <entry key="JAVA" value="571" />
           <entry key="Properties" value="10" />
           <entry key="UML" value="2" />
-          <entry key="XML" value="111" />
+          <entry key="XML" value="112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="java" value="31752" />
+          <entry key="java" value="33072" />
           <entry key="properties" value="334" />
           <entry key="txt" value="63" />
           <entry key="xml" value="3699" />
@@ -141,7 +139,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="31752" />
+          <entry key="JAVA" value="33072" />
           <entry key="PLAIN_TEXT" value="91" />
           <entry key="Properties" value="334" />
           <entry key="SQL" value="40" />
@@ -158,56 +156,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1131">
-              <caret line="306" column="29" selection-start-line="306" selection-start-column="29" selection-end-line="306" selection-end-column="29" />
+            <state relative-caret-position="2989">
+              <caret line="350" column="43" lean-forward="true" selection-start-line="350" selection-start-column="43" selection-end-line="350" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#10762#10770#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/model/ExportUserModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1195">
-              <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
-              <folding>
-                <element signature="e#1858#1859#0" expanded="true" />
-                <element signature="e#1884#1885#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserPasswordDOMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/InvitationUserServiveImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="311">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2189#2190#0" expanded="true" />
-                <element signature="e#2216#2217#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,10 +180,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1742">
-              <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+            <state relative-caret-position="1132">
+              <caret line="117" column="66" lean-forward="true" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
+              <folding>
+                <element signature="e#1894#1895#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -258,7 +234,6 @@
       <find>getUserById</find>
       <find>updateByTelphone</find>
       <find>updateUserPassword</find>
-      <find>selectUserList</find>
       <find>dele</find>
       <find>idsbatchDeleteUser</find>
       <find>batchDeleteUser</find>
@@ -268,6 +243,7 @@
       <find>partentName</find>
       <find>selectUserByParentid</find>
       <find>insertSelective</find>
+      <find>selectUserList</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -282,8 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/redis/RedisService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/redis/impl/RedisServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/redis/Modal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/redis/ResponseModal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/redis/DemoController.java" />
@@ -328,10 +302,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/ExcelExport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/InvitationUserServiveImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils2.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/model/UserModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/model/ExportUserModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/UserServiceImpl.java" />
       </list>
     </option>
@@ -369,7 +345,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="160" />
     <option name="height" value="39" />
   </component>
@@ -405,7 +381,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -447,7 +422,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Excel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
@@ -466,7 +441,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="miaosha" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
@@ -483,49 +458,11 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mapping" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="miaosha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="miaosha" type="462c0819:PsiDirectoryNode" />
-              <item name="Impl" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -749,7 +686,9 @@
       <workItem from="1559369139148" duration="8152000" />
       <workItem from="1559478627015" duration="8102000" />
       <workItem from="1559572961595" duration="3702000" />
-      <workItem from="1559654106765" duration="9458000" />
+      <workItem from="1559654106765" duration="11349000" />
+      <workItem from="1559785615360" duration="9661000" />
+      <workItem from="1559876483709" duration="6937000" />
     </task>
     <task id="LOCAL-00001" summary="用户token">
       <created>1559054302957</created>
@@ -762,39 +701,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 23m 18s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 24m 57s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 31m 46s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 34m 08s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 32m 55s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 40m 26s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 34m 19s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 42m 09s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 35m 57s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 44m 04s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 37m 14s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 46m 52s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 40m 20s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 11h 58m 11s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 43m 28s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 12h 06m 45s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 45m 05s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 12h 36m 37s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.04 at 23h 54m 03s.xml">
+    <history-entry file="UserServiceImplTest_exportExcel - 2019.06.07 at 12h 37m 43s.xml">
       <configuration name="UserServiceImplTest.exportExcel" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="409074000" />
+    <option name="totallyTimeSpent" value="427563000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -806,17 +745,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.28441754" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19288956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Web" order="2" side_tool="true" weight="0.21255673" />
       <window_info id="Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.39344263" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6633826" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31527093" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21182266" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3234811" />
@@ -825,7 +765,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.14449918" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.41050902" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
@@ -875,7 +815,21 @@
     <option name="LAST_COMMIT_MESSAGE" value="用户token" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="fields[1]" />
+        <watch expression="outputStream" />
+      </configuration>
       <configuration name="Application">
         <watch expression="httpServletRequest" language="JAVA" />
       </configuration>
@@ -886,13 +840,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/4.3.5.RELEASE/spring-test-4.3.5.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestMethodCallbacks.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -1012,34 +959,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="147" column="47" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/model/UserModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserPasswordDOMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
           <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="60" column="23" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,31 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1069#1070#0" expanded="true" />
-            <element signature="e#1111#1112#0" expanded="true" />
-            <element signature="e#1145#1146#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1146,26 +1044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-130">
           <caret line="139" column="33" lean-forward="true" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
-          <folding>
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="e#1944#1945#0" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2339#2340#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-            <element signature="e#2691#2692#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-            <element signature="e#3104#3105#0" expanded="true" />
-            <element signature="e#3423#3424#0" expanded="true" />
-            <element signature="e#3454#3455#0" expanded="true" />
-            <element signature="e#3792#3793#0" expanded="true" />
-            <element signature="e#3865#3866#0" expanded="true" />
-            <element signature="e#4195#4196#0" expanded="true" />
-            <element signature="e#4228#4229#0" expanded="true" />
-            <element signature="e#4581#4582#0" expanded="true" />
-            <element signature="e#4662#4663#0" expanded="true" />
-            <element signature="e#6150#6151#0" expanded="true" />
-            <element signature="e#6197#6198#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1180,9 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="23" column="47" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,13 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserDOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1228,17 +1096,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="272" column="11" selection-start-line="272" selection-start-column="11" selection-end-line="272" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserDOMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1014">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/dao/UserPasswordDOMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="988">
           <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/InvitationUserServiveImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="1040">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2189#2190#0" expanded="true" />
@@ -1247,64 +1136,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/Date.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="272" column="11" selection-start-line="272" selection-start-column="11" selection-end-line="272" selection-end-column="11" />
-          <folding>
-            <element signature="e#10648#10649#0" expanded="true" />
-            <element signature="e#10678#10679#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="160">
+          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2964">
-          <caret line="198" column="14" lean-forward="true" selection-start-line="198" selection-start-column="14" selection-end-line="198" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4181#4209#0" expanded="true" />
-            <element signature="e#9833#9861#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1742">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/miaosha/service/Impl/UserServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="78" column="26" lean-forward="true" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+        <state relative-caret-position="312">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
-            <element signature="e#1858#1859#0" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
+            <element signature="e#1894#1895#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/Excel/ExcelExportUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1132">
+          <caret line="117" column="66" lean-forward="true" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/model/UserModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="27" selection-end-column="34" />
+          <folding>
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/model/ExportUserModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaosha/service/Impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="306" column="29" selection-start-line="306" selection-start-column="29" selection-end-line="306" selection-end-column="29" />
+        <state relative-caret-position="2989">
+          <caret line="350" column="43" lean-forward="true" selection-start-line="350" selection-start-column="43" selection-end-line="350" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10762#10770#0" expanded="true" />
           </folding>
         </state>
       </provider>

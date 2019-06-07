@@ -5,15 +5,13 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class UserModel {
+public class ExportUserModel {
     private Integer id;
 
     @NotBlank(message = "用户名不能为空")
     private String name;
 
     @NotNull(message = "性别不能为空")
-    private Byte gender;
-
     private String genders;
     @NotNull(message = "年龄不能为空")
     @Min(value = 0,message = "年龄不能小于0")
@@ -41,14 +39,6 @@ public class UserModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Byte getGender() {
-        return gender;
-    }
-
-    public void setGender(Byte gender) {
-        this.gender = gender;
     }
 
     public String getGenders() {

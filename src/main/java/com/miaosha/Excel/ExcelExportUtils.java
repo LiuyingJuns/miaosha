@@ -8,142 +8,134 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ExcelExportUtils<T> {
     public static final Logger log = LoggerFactory.getLogger(ExcelExportUtils.class);
     /**
-     * @param title 表格标题名
-     * @param headers 表格列名数组
-     * @param dataset  导出的数据集合
-     * @param out 输出流
-     * @param pattern 时间格式
+     * 数字正则表达式匹配
      */
-    public void exportExcel(String title, String[] headers, Collection<T> dataset, OutputStream out, String pattern){
-        //声明工作簿
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("^//d+(//.//d+)?$");
+
+    @SuppressWarnings("uncheck")
+    public static <T> void exportExcel(String title, String[] headers, Collection<T> dataset, OutputStream out, String pattern) {
+        // 声明一个工作簿
         HSSFWorkbook workbook = new HSSFWorkbook();
-
-        //声明表格
+        // 生成一个表格
         HSSFSheet sheet = workbook.createSheet(title);
-
-        //设置默认宽度，15字节
+        // 设置表格默认宽度为15个字节
         sheet.setDefaultColumnWidth(15);
-
-        //生成表格样式
-        HSSFCellStyle cellStyle = workbook.createCellStyle();
-
+        // 生成header样式
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+        // 设置样式
         //设置一个样式
-        cellStyle.setFillBackgroundColor(HSSFColor.HSSFColorPredefined.BLUE.getIndex());
-        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        cellStyle.setBorderBottom(BorderStyle.THIN);
-        cellStyle.setBorderLeft(BorderStyle.THIN);
-        cellStyle.setBorderRight(BorderStyle.THIN);
-        cellStyle.setBorderTop(BorderStyle.THIN);
-        cellStyle.setAlignment(HorizontalAlignment.CENTER);
+        headerCellStyle.setFillBackgroundColor(HSSFColor.HSSFColorPredefined.BLUE.getIndex());
+        headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        headerCellStyle.setBorderBottom(BorderStyle.THIN);
+        headerCellStyle.setBorderLeft(BorderStyle.THIN);
+        headerCellStyle.setBorderRight(BorderStyle.THIN);
+        headerCellStyle.setBorderTop(BorderStyle.THIN);
+        headerCellStyle.setAlignment(HorizontalAlignment.CENTER);
+        // 生成header字体
+        HSSFFont headerFont = workbook.createFont();
+        // 设置字体
+        headerFont.setColor(HSSFColor.VIOLET.index);
+        headerFont.setFontHeightInPoints((short) 12);
+        headerFont.setColor(HSSFColor.HSSFColorPredefined.VIOLET.getIndex());
+        // 将字体应用到样式
+        headerCellStyle.setFont(headerFont);
 
-        //生成一个字体
-        HSSFFont font = workbook.createFont();
-        font.setColor(HSSFColor.HSSFColorPredefined.VIOLET.getIndex());
-        font.setFontHeight((short) 2000);
-        font.setBold(true);
+        // 生成body样式
+        HSSFCellStyle bodyCellStyle = workbook.createCellStyle();
+        bodyCellStyle.setFillBackgroundColor(HSSFColor.HSSFColorPredefined.DARK_RED.getIndex());
+        bodyCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        bodyCellStyle.setBorderBottom(BorderStyle.THIN);
+        bodyCellStyle.setBorderLeft(BorderStyle.THIN);
+        bodyCellStyle.setBorderRight(BorderStyle.THIN);
+        bodyCellStyle.setBorderTop(BorderStyle.THIN);
+        bodyCellStyle.setAlignment(HorizontalAlignment.CENTER);
+        bodyCellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+        // 生成body字体
+        HSSFFont bodyFont = workbook.createFont();
+        bodyFont.setBold(true);
+        bodyCellStyle.setFont(bodyFont);
 
-        //应用字体到当前样式
-        cellStyle.setFont(font);
-
-        //生成另外一个样式
-        HSSFCellStyle cellStyle2 = workbook.createCellStyle();
-        cellStyle.setFillBackgroundColor(HSSFColor.HSSFColorPredefined.DARK_RED.getIndex());
-        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        cellStyle.setBorderBottom(BorderStyle.THIN);
-        cellStyle.setBorderLeft(BorderStyle.THIN);
-        cellStyle.setBorderRight(BorderStyle.THIN);
-        cellStyle.setBorderTop(BorderStyle.THIN);
-        cellStyle.setAlignment(HorizontalAlignment.CENTER);
-        cellStyle2.setVerticalAlignment(VerticalAlignment.CENTER);
-
-        //生成另外一个字体
-       HSSFFont font2 = workbook.createFont();
-        font2.setBold(true);
-
-        //将字体应用到当前样式
-        cellStyle2.setFont(font2);
-
-        //声明画图的管理器
-        HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
-
-        //定义注释的大小和位置
-        HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0,0,0,0,(short)4,2,(short)6,5));
-
-        //设置注释内容
-        comment.setString(new HSSFRichTextString("可以在poi中添加注释"));
-
-        //设置注释作者
-        comment.setAuthor("刘英俊");
-
-        //表格标题行
-        //创建第一行
+        //生成表格标题
         HSSFRow row = sheet.createRow(0);
-        for (int i=0;i<headers.length;i++){
-               HSSFCell cell = row.createCell(i);
-               cell.setCellStyle(cellStyle);
-               HSSFRichTextString textString = new HSSFRichTextString(headers[i]);
-               cell.setCellValue(textString);
+        for (int i = 0; i < headers.length; i++) {
+            HSSFCell cell = row.createCell(i);
+            cell.setCellStyle(headerCellStyle);
+            HSSFRichTextString headerStr = new HSSFRichTextString(headers[i]);
+            cell.setCellValue(headerStr);
         }
 
-        //遍历集合数据，填充数据行
-        Iterator<T> iterator = dataset.iterator();
+        //遍历导出数据集合，生成数据行
+        Iterator<T> it = dataset.iterator();
         int index = 0;
-        while (iterator.hasNext()){
+        while (it.hasNext()) {
             index++;
-            HSSFRow hssfRow = sheet.createRow(index);
-           T t = (T)iterator.next();
+            row = sheet.createRow(index);
+            T t = (T) it.next();
+            //利用反射，根据JavaBean属性的先后顺序，动态调用getXXX方法得到属性值
+            Field[] fields = t.getClass().getDeclaredFields();
+            for (int i = 0; i < fields.length; i++) {
+                HSSFCell cell = row.createCell(i);
+                cell.setCellStyle(bodyCellStyle);
+                Field field = fields[i];
+                String fieldName = field.getName();
+                String getMethodName = "get" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+                try {
+                    //调用get方法
+                    Class cls = t.getClass();
+                    Method method = cls.getMethod(getMethodName, new Class[]{});
+                    Object value = method.invoke(t, new Object[]{});
+                    //判断值类型，并转换成需要的格式
+                    String textValue = null;
+                    if (value instanceof Date) {
+                        Date date = (Date) value;
+                        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+                        textValue = sdf.format(date);
+                    } else {
+                        // 其他数据类型皆转换成String
+                        textValue = value.toString();
+                    }
 
-           //利用反射，根据javabean先后顺序，动态调用get方法得到属性值
-           Field[] fields = t.getClass().getDeclaredFields();
-           for (int i=0;i<fields.length;i++){
-              HSSFCell hssfCell = row.createCell(i);
-              hssfCell.setCellStyle(cellStyle2);
-              Field fields1 = fields[i];
-              String fieldName = fields1.getName();
-              String getMethodName = "get"+fieldName.substring(0,1).toUpperCase() + fieldName.substring(1);
+                    //处理值，并填充到Cell
+                    if (textValue != null) {
+                        //数字统一用Double处理
+                        Matcher matcher = NUMBER_PATTERN.matcher(textValue);
+                        if (matcher.matches()) {
+                            cell.setCellValue(Double.parseDouble(textValue));
+                        } else {
+                            HSSFRichTextString richTextString = new HSSFRichTextString(textValue);
+                            HSSFFont font = workbook.createFont();
+                            font.setColor(HSSFColor.HSSFColorPredefined.BLUE.getIndex());
+                            richTextString.applyFont(font);
+                            cell.setCellValue(richTextString);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log.error(e.getMessage());
+                }
+            }
+        }
 
-              //调用get方法
-              Class cls = t.getClass();
-               try {
-                   Method method = cls.getMethod(getMethodName,new Class[]{});
-                   Object value = method.invoke(t,new Object[]{});
-                   //判断值类型，并转换成需要的格式
-                   String textValue = null;
-                   if(value instanceof Date){
-                       Date date = (Date) value;
-                       SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                       textValue = dateFormat.format(date);
-                   }else {
-                       //其它数据类型都转换为string
-                      textValue = value.toString();
-                   }
-               } catch (NoSuchMethodException e) {
-                   e.printStackTrace();
-                   log.error(e.getMessage());
-               } catch (IllegalAccessException e) {
-                   e.printStackTrace();
-                   e.getMessage();
-
-               } catch (InvocationTargetException e) {
-                   e.printStackTrace();
-                   e.getMessage();
-                   log.error(e.getMessage());
-               }
-           }
+        try {
+            workbook.write(out);
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.error(e.getMessage());
         }
     }
-
 }
-

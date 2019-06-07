@@ -8,6 +8,7 @@ import com.miaosha.dateobject.UserPasswordDO;
 import com.miaosha.error.BussinessException;
 import com.miaosha.error.EmBussinessError;
 import com.miaosha.service.UserService;
+import com.miaosha.service.model.ExportUserModel;
 import com.miaosha.service.model.UserModel;
 import com.miaosha.validation.ValidationResult;
 import com.miaosha.validation.ValidatorImpl;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.DuplicateFormatFlagsException;
@@ -29,6 +31,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDOMapper userDOMapper;
@@ -296,36 +299,69 @@ public class UserServiceImpl implements UserService {
     return 1;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void exportUsers() {
-        ExcelExportUtils exportUtils = new ExcelExportUtils();
         //设置表格标题名称
         String title = "用户";
         //设置表格列名数组
-        String[] headers = new String[]{"用户姓名","性别","年龄","手机号","注册码"};
+        String[] headers = new String[]{"用户id","用户姓名","性别","年龄","手机号","注册码","第三方","密码"};
         //查出用户数据
         List<UserDO> userDOList = userDOMapper.selectUserList();
 
-//        List<UserModel> userModelList = new ArrayList<>();
-//        //查出用户密码
-//        for (UserDO userDO : userDOList){
-//            Integer userid = userDO.getId();
-//            UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userid);
-//            UserModel userModel = new UserModel();
-//            BeanUtils.copyProperties(userDO,userModel);
-//            if (userPasswordDO.getEncrptPassword()!=null){
-//                userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
-//                userModelList.add(userModel);
-//            }
-//        }
+        List<UserModel> userModelList = new ArrayList<>();
+        //查出用户密码
+        for (UserDO userDO : userDOList){
+            Integer userid = userDO.getId();
+            UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userid);
+
+
+            UserModel userModel = new UserModel();
+            userModel.setId(userDO.getId());
+            userModel.setName(userDO.getName());
+            if (userDO.getGender()==0){
+                userModel.setGenders("男");
+            }
+            else if(userDO.getGender()==1){
+                userModel.setGenders("女");
+            }
+
+            userModel.setAge(userDO.getAge());
+            userModel.setTelphone(userDO.getTelphone());
+            userModel.setRegisterMode(userDO.getRegisterMode());
+            userModel.setThirdPartyId(userDO.getThirdPartyId());
+
+            if (userPasswordDO.getEncrptPassword()!=null){
+                userModel.setEncrptPassword(userPasswordDO.getEncrptPassword());
+            }
+            userModelList.add(userModel);
+        }
+
+       List<ExportUserModel> exportUserModels = userModelList.stream().map(
+                userModel -> {
+                    ExportUserModel exportUserModel = new ExportUserModel();
+                    exportUserModel.setId(userModel.getId());
+                    exportUserModel.setAge(userModel.getAge());
+                    exportUserModel.setGenders(userModel.getGenders());
+                    exportUserModel.setName(userModel.getName());
+                    exportUserModel.setTelphone(userModel.getTelphone());
+                    exportUserModel.setRegisterMode(userModel.getRegisterMode());
+                    exportUserModel.setThirdPartyId(userModel.getThirdPartyId());
+                    exportUserModel.setEncrptPassword(userModel.getEncrptPassword());
+                    return exportUserModel;
+                }
+        ).collect(Collectors.toList());
+
         //创建输入流
         try {
-            OutputStream outputStream = new FileOutputStream("C://Users//acer-pc//Desktop//users.xls");
-            ExcelExportUtils<UserDO> excelExportUtils = new ExcelExportUtils<UserDO>();
-            excelExportUtils.exportExcel(title,headers,userDOList,outputStream,"yyyy-MM-dd");
+            OutputStream outputStream = new FileOutputStream("E://a.xls");
+            ExcelExportUtils.exportExcel(title,headers,exportUserModels,outputStream,"yyyy-mm-dd");
+            outputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             log.error(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
