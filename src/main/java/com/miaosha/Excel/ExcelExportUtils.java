@@ -6,6 +6,7 @@ import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,8 +28,12 @@ public class ExcelExportUtils<T> {
      */
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^//d+(//.//d+)?$");
 
+    public static<T> void exportExcel(String title,String firstRowTitle,String[] headers,Collection<T> dataset,OutputStream outputStream){
+        exportExcel(title,firstRowTitle,headers,dataset,outputStream,"yyyy-mm-dd");
+    }
+
     @SuppressWarnings("uncheck")
-    public static <T> void exportExcel(String title, String[] headers, Collection<T> dataset, OutputStream out, String pattern) {
+    public static <T> void exportExcel(String title, String firstRowTitle,String[] headers, Collection<T> dataset, OutputStream out, String pattern) {
         // 声明一个工作簿
         HSSFWorkbook workbook = new HSSFWorkbook();
         // 生成一个表格
@@ -49,7 +54,7 @@ public class ExcelExportUtils<T> {
         // 生成header字体
         HSSFFont headerFont = workbook.createFont();
         // 设置字体
-        headerFont.setColor(HSSFColor.VIOLET.index);
+        headerFont.setColor(HSSFColor.HSSFColorPredefined.VIOLET.getIndex());
         headerFont.setFontHeightInPoints((short) 12);
         headerFont.setColor(HSSFColor.HSSFColorPredefined.VIOLET.getIndex());
         // 将字体应用到样式
@@ -70,8 +75,13 @@ public class ExcelExportUtils<T> {
         bodyFont.setBold(true);
         bodyCellStyle.setFont(bodyFont);
 
-        //生成表格标题
+        //合并首行
         HSSFRow row = sheet.createRow(0);
+        HSSFCell hssfCell = row.createCell(0);
+        hssfCell.setCellValue(firstRowTitle);
+        sheet.addMergedRegion(new CellRangeAddress(0,0,0,headers.length-1));
+        //生成表格标题
+        row = sheet.createRow(1);
         for (int i = 0; i < headers.length; i++) {
             HSSFCell cell = row.createCell(i);
             cell.setCellStyle(headerCellStyle);
@@ -81,7 +91,7 @@ public class ExcelExportUtils<T> {
 
         //遍历导出数据集合，生成数据行
         Iterator<T> it = dataset.iterator();
-        int index = 0;
+        int index = 1;
         while (it.hasNext()) {
             index++;
             row = sheet.createRow(index);

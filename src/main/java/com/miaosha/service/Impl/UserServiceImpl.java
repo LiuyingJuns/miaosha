@@ -306,6 +306,8 @@ public class UserServiceImpl implements UserService {
         String title = "用户";
         //设置表格列名数组
         String[] headers = new String[]{"用户id","用户姓名","性别","年龄","手机号","注册码","第三方","密码"};
+        //设置第一行合并内容
+        String firstRowTitle = "我是刘英俊啊";
         //查出用户数据
         List<UserDO> userDOList = userDOMapper.selectUserList();
 
@@ -355,7 +357,7 @@ public class UserServiceImpl implements UserService {
         //创建输入流
         try {
             OutputStream outputStream = new FileOutputStream("E://a.xls");
-            ExcelExportUtils.exportExcel(title,headers,exportUserModels,outputStream,"yyyy-mm-dd");
+            ExcelExportUtils.exportExcel(title,firstRowTitle,headers,exportUserModels,outputStream);
             outputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
