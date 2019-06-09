@@ -1,6 +1,7 @@
 package com.miaosha.service.Impl;
 
 import com.miaosha.Excel.ExcelExportUtils;
+import com.miaosha.Excel.ExcelInputUtils;
 import com.miaosha.dao.UserDOMapper;
 import com.miaosha.dao.UserPasswordDOMapper;
 import com.miaosha.dateobject.UserDO;
@@ -362,6 +363,44 @@ public class UserServiceImpl implements UserService {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             log.error(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void inputUsers() {
+        try {
+            List<List<String>> lists = ExcelInputUtils.readXlsExcel("E://a.xls");
+            System.out.println(lists.size());
+            for (int i=1;i<lists.size();i++){
+                List<String> list = lists.get(i);
+                UserDO userDO = new UserDO();
+                try {
+                    if (list.get(0)!=null && !list.get(0).equals("")){
+                        userDO.setId(Integer.valueOf(list.get(0)));
+                    }
+                    userDO.setName(list.get(1));
+                    if (list.get(2)!=null && !list.get(2).equals("")){
+                        userDO.setGender(Integer.parseInt(list.get(2)));
+                    }
+                    if (list.get(3)!=null && !list.get(3).equals("")){
+                        userDO.setAge(Integer.valueOf(list.get(3)));
+                    }
+                    userDO.setTelphone(list.get(4));
+                    userDO.setRegisterMode(list.get(5));
+                    userDO.setThirdPartyId(list.get(6));
+                    userDOMapper.insertSelective(userDO);
+                }
+             catch (Exception e){
+                    e.getMessage();
+             }
+            }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

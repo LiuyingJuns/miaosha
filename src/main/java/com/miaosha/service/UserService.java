@@ -38,4 +38,7 @@ public interface UserService {
 
     /**导出用户数据*/
     void exportUsers();
+
+    /**导入用户数据*/
+    void inputUsers();
 }
