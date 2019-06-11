@@ -1,7 +1,9 @@
 package com.miaosha.service.Impl;
 import com.miaosha.error.BussinessException;
+import com.miaosha.redis.RedisService;
 import com.miaosha.service.UserService;
 import com.miaosha.service.model.UserModel;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -24,8 +26,13 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceImplTest {
+    public static final Logger log = Logger.getLogger(UserServiceImplTest.class);
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RedisService redisService;
+
 
     public static  int id = 7;
     public static  String telphone = "15222222222";
@@ -56,6 +63,7 @@ public class UserServiceImplTest {
     @Test
     public void selectUserList(){
        List<UserModel> userModelList =  userService.selectUserList();
+        log.info("查找用户成功"+userModelList);
         Assert.assertNotNull(userModelList);
     }
 
@@ -102,10 +110,25 @@ public class UserServiceImplTest {
             OutputStream outputStream = new FileOutputStream("E://a.xls");
             workbook.write(outputStream);
             outputStream.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    @Test
+    public void userRedis(){
+        String a = "222";
+        //redisService.set("1",a);
+
+        List<UserModel> userDOList = userService.selectUserList();
+      //  redisService.lPush("用户列表",userDOList);
+
+        List<Object> userModelList = redisService.lRange("用户列表",1,10);
+        Assert.assertNotNull(userDOList);
+    }
+
 }

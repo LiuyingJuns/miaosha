@@ -1,71 +1,69 @@
 package com.miaosha.redis;
 
-import org.apache.log4j.Logger;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
+import java.lang.reflect.Method;
 
+@Configuration
+@EnableCaching
+public class RedisConfig extends CachingConfigurerSupport {
 
-    @Component
-    public class RedisConfig {
+    /**
+     * 生成key的策略
+     * @return
+     */
+    @Override
+    @Bean
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : params) {
+                    sb.append(obj.toString());
+                }
+                return sb.toString();
+            }
+        };
+    }
 
-        private static org.apache.log4j.Logger logger = Logger.getLogger(RedisConfig.class);
+    /**
+     * 管理缓存
+     */
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory factory) {
+        RedisCacheManager rcm = RedisCacheManager.create(factory);
+        return rcm;
+    }
 
-        private String hostName;
-
-        private int port;
-
-        //private String password;
-
-        private int timeout;
-
-
-        //@Bean    //此处注入JedisPoolConfig对象没有意义，不需要
-        public JedisPoolConfig getRedisConfig(){
-            JedisPoolConfig config = new JedisPoolConfig();
-            return config;
-        }
-
-        @Bean//@Bean注解将一个配置类的方法的返回值定义为一个bean，注册到spring里面
-        public JedisPool getJedisPool(){
-            JedisPoolConfig config = getRedisConfig();
-            JedisPool pool = new JedisPool(config,hostName,port);
-            logger.info("init JredisPool ...");
-            return pool;
-        }
-
-        public String getHostName() {
-            return hostName;
-        }
-
-        public void setHostName(String hostName) {
-            this.hostName = hostName;
-        }
-
-        public int getPort() {
-            return port;
-        }
-
-        public void setPort(int port) {
-            this.port = port;
-        }
-        /**
-         public String getPassword() {
-         return password;
-         }
-         public void setPassword(String password) {
-         this.password = password;
-         }
-         **/
-
-        public int getTimeout() {
-            return timeout;
-        }
-
-        public void setTimeout(int timeout) {
-            this.timeout = timeout;
-        }
-
+    /**
+     * RedisTemplate配置
+     */
+    @Bean
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.afterPropertiesSet();
+        return template;
+    }
 }
