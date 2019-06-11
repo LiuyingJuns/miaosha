@@ -1,7 +1,11 @@
 package com.miaosha.service.Impl;
 
+<<<<<<< HEAD
 import com.miaosha.Excel.ExcelExportUtils;
 import com.miaosha.Excel.ExcelInputUtils;
+=======
+import com.miaosha.Utils.ExcelExportUtils;
+>>>>>>> 1aa9dcfb29ed229777fc3a5c679118b539fce9d0
 import com.miaosha.dao.UserDOMapper;
 import com.miaosha.dao.UserPasswordDOMapper;
 import com.miaosha.dateobject.UserDO;
@@ -359,6 +363,8 @@ public class UserServiceImpl implements UserService {
         try {
             OutputStream outputStream = new FileOutputStream("E://a.xls");
             ExcelExportUtils.exportExcel(title,firstRowTitle,headers,exportUserModels,outputStream);
+            log.info("导出成功");
+
             outputStream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
